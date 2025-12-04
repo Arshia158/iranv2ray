@@ -1,1 +1,509 @@
-coming soon...
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قیمت فیلترشکن V2Ray</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'vazirmatn': ['Vazirmatn', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div id="app" class="max-w-7xl mx-auto">
+        <div class="bg-white overflow-hidden shadow-xl rounded-2xl">
+            <header class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-center">
+                <h1 class="text-3xl font-bold text-white mb-2">فیلترشکن V2Ray</h1>
+                <p class="text-xl text-blue-100">کانفیگ‌های با کیفیت و پرسرعت</p>
+                <div class="mt-4 flex justify-center">
+                    <div class="bg-white bg-opacity-20 rounded-full p-3">
+                        <i class="fas fa-shield-alt text-yellow-300 text-3xl"></i>
+                    </div>
+                </div>
+            </header>
+            <main class="p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-6 text-right">پلن‌های قیمتی</h2>
+                
+                <div class="flex justify-center mb-8">
+                    <div class="bg-gray-100 rounded-lg p-1 inline-flex">
+                        <button onclick="switchTab('1month')" class="tab-button active px-6 py-3 rounded-md bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium" id="tab-1month">
+                            <i class="fas fa-calendar-alt ml-2"></i>
+                            ۱ ماهه
+                        </button>
+                        <button onclick="switchTab('2month')" class="tab-button px-6 py-3 rounded-md text-gray-700 font-medium hover:bg-gray-200" id="tab-2month">
+                            <i class="fas fa-calendar-week ml-2"></i>
+                            ۲ ماهه
+                        </button>
+                        <button onclick="switchTab('3month')" class="tab-button px-6 py-3 rounded-md text-gray-700 font-medium hover:bg-gray-200" id="tab-3month">
+                            <i class="fas fa-calendar ml-2"></i>
+                            ۳ ماهه
+                        </button>
+                    </div>
+                </div>
+
+                <div id="content-1month" class="tab-content active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-blue-100 inline-block mb-3">
+                                    <i class="fas fa-rocket text-blue-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن پایه</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">49</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">10 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-green-100 inline-block mb-3">
+                                    <i class="fas fa-user text-green-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن استاندارد</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">99</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">20 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200 relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs px-3 py-1 rounded-full">پرطرفدار</div>
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-purple-100 inline-block mb-3">
+                                    <i class="fas fa-star text-purple-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن حرفه‌ای</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">149</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">50 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-yellow-100 inline-block mb-3">
+                                    <i class="fas fa-crown text-yellow-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن ویژه</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">249</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-2month" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-green-100 inline-block mb-3">
+                                    <i class="fas fa-calendar-alt text-green-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن استاندارد</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">149</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">20 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-green-500 to-teal-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200 relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs px-3 py-1 rounded-full">پیشنهادی</div>
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-purple-100 inline-block mb-3">
+                                    <i class="fas fa-gem text-purple-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن حرفه‌ای</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">169</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">50 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-green-500 to-teal-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-yellow-100 inline-block mb-3">
+                                    <i class="fas fa-infinity text-yellow-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن نامحدود</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">299</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-green-500 to-teal-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-3month" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-purple-100 inline-block mb-3">
+                                    <i class="fas fa-bolt text-purple-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن پایه</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">99</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">10 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-indigo-100 inline-block mb-3">
+                                    <i class="fas fa-rocket text-indigo-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن استاندارد</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">169</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">20 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200 relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-xs px-3 py-1 rounded-full">بهترین ارزش</div>
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-pink-100 inline-block mb-3">
+                                    <i class="fas fa-star text-pink-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن حرفه‌ای</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">199</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium">50 گیگابایت</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-xl p-4 hover:shadow-lg transition-all border-gray-200">
+                            <div class="text-center">
+                                <div class="p-3 rounded-full bg-red-100 inline-block mb-3">
+                                    <i class="fas fa-infinity text-red-500 text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">پلن نامحدود</h4>
+                                <div class="mt-3">
+                                    <div class="text-2xl font-bold text-gray-800">399</div>
+                                    <div class="text-sm text-gray-500">هزار تومان</div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">حجم:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">کاربر:</span>
+                                        <span class="font-medium flex items-center">
+                                            <i class="fas fa-infinity text-purple-500 ml-1"></i>
+                                            نامحدود
+                                        </span>
+                                    </div>
+                                </div>
+                                <button onclick="openTelegram()" class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white py-2 px-4 rounded-lg hover:shadow-md transition-all">
+                                    خرید
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 text-right">سازگاری کامل با تمام دستگاه‌ها</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="border rounded-xl p-4 border-gray-200">
+                            <div class="flex items-center">
+                                <div class="p-3 rounded-full bg-blue-100 ml-3">
+                                    <i class="fas fa-tools text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800 text-right">سازگاری کامل</h3>
+                                    <p class="text-sm text-gray-600">با تمام دستگاه‌ها و سیستم‌عامل‌ها</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-xl p-4 border-gray-200">
+                            <div class="flex items-center">
+                                <div class="p-3 rounded-full bg-green-100 ml-3">
+                                    <i class="fas fa-wrench text-green-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800 text-right">نصب آسان</h3>
+                                    <p class="text-sm text-gray-600">راهنمای تصویری کامل برای نصب</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-xl p-4 border-gray-200">
+                            <div class="flex items-center">
+                                <div class="p-3 rounded-full bg-purple-100 ml-3">
+                                    <i class="fas fa-cogs text-purple-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800 text-right">تنظیمات پیشرفته</h3>
+                                    <p class="text-sm text-gray-600">امکان تنظیمات دلخواه برای حرفه‌ای‌ها</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-xl p-4 border-gray-200">
+                            <div class="flex items-center">
+                                <div class="p-3 rounded-full bg-orange-100 ml-3">
+                                    <i class="fas fa-tachometer-alt text-orange-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-800 text-right">سرعت و پایداری بالا</h3>
+                                    <p class="text-sm text-gray-600">اتصال پرسرعت و بدون قطعی</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="bg-gray-50 p-6 border-t">
+                <div class="text-center">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">با اطمینان خرید کنید</h2>
+                    <div class="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg">
+                        <div>
+                            <div class="text-3xl font-bold">24/7</div>
+                            <div class="text-xs opacity-80">پشتیبانی</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <span class="inline-block px-4 py-2 rounded-full bg-green-100 text-green-800">تضمین کیفیت</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => {
+                tab.classList.remove('active', 'bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white');
+                tab.classList.add('text-gray-700', 'hover:bg-gray-200');
+            });
+            
+            document.getElementById('content-' + tabName).classList.add('active');
+            
+            const activeTab = document.getElementById('tab-' + tabName);
+            activeTab.classList.add('active', 'bg-gradient-to-r', 'from-blue-500', 'to-blue-600', 'text-white');
+            activeTab.classList.remove('text-gray-700', 'hover:bg-gray-200');
+        }
+
+        function openTelegram() {
+            window.open('https://t.me/iranv2rayng_support', '_blank');
+        }
+    </script>
+</body>
+</html>
